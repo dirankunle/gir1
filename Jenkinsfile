@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-  maven 'MAVEN_HOME'
+  maven 'Maven'
   }
     
 	stages {
@@ -59,7 +59,7 @@ pipeline {
     stage ('Deploy Artifacts') {
             steps {
                 rtMavenRun (
-                    tool: "MAVEN_HOME", // Tool name from Jenkins configuration
+                    tool: 'Maven', // Tool name from Jenkins configuration
                     pom: 'webapp/pom.xml',
                     goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER",
